@@ -108,7 +108,7 @@ self.addEventListener('push', function(event) {
   var options = {
     body:    data.body  || '',
     icon:    data.icon  || '/icon-192.png',
-    badge:   '/icon-notif.png',
+    badge:   '/badge.png',
     vibrate: [200, 100, 200],
     data:    { url: data.url || '/' },
     actions: data.url ? [{ action: 'open', title: 'Abrir →' }] : []
