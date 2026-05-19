@@ -1,0 +1,43 @@
+{
+  "name": "Turistou — Seu guia local",
+  "short_name": "Turistou",
+  "description": "Encontre guias locais e viva experiências autênticas pelo Brasil.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#22a855",
+  "theme_color": "#22a855",
+  "lang": "pt-BR",
+  "categories": ["travel", "lifestyle"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Explorar passeios",
+      "short_name": "Explorar",
+      "description": "Ver passeios disponíveis",
+      "url": "/#explorar",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Minhas Reservas",
+      "short_name": "Reservas",
+      "description": "Ver minhas reservas",
+      "url": "/#turista/reservas",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
