@@ -98,3 +98,40 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
+
+// ── PUSH: receber e exibir notificação ───────────────────────
+self.addEventListener('push', function(event) {
+  var data = {};
+  try { data = event.data ? event.data.json() : {}; } catch(e) {}
+
+  var title   = data.title || 'Turistou';
+  var options = {
+    body:    data.body  || '',
+    icon:    data.icon  || '/icon-192.png',
+    badge:   '/icon-192.png',
+    vibrate: [200, 100, 200],
+    data:    { url: data.url || '/' },
+    actions: data.url ? [{ action: 'open', title: 'Abrir →' }] : []
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+// ── CLICK: abrir app ao clicar na notificação ────────────────
+self.addEventListener('notificationclick', function(event) {
+  event.notification.close();
+  var url = (event.notification.data && event.notification.data.url) || '/';
+
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function(list) {
+      for (var c of list) {
+        if (c.url.includes(self.location.origin)) {
+          c.focus();
+          c.navigate(url);
+          return;
+        }
+      }
+      return clients.openWindow(url);
+    })
+  );
+});
