@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/(.*)", "destination": "https://turistou.hubgrowth.com.br/", "permanent": true }
+  ]
+}
